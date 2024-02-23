@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim2.c                                      :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:48:32 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/17 18:53:06 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/01/26 19:08:37 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //for ft_strtrim function: if set or the string doesn't exist, just return NULL
-//on creer une fonction check-char pour savoir si le caractere est dans notre 
-//string 
+//we create the function check char to know if the word is in our string 
 //#include <stddef.h>
 //#include <stdlib.h>
 #include "libft.h"

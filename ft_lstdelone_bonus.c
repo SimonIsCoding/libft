@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 15:20:07 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/23 17:02:51 by simarcha         ###   ########.fr       */
+/*   Created: 2024/02/21 15:32:42 by simarcha          #+#    #+#             */
+/*   Updated: 2024/02/22 20:39:56 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+/*void	del(void *content)
 {
-	int	i;
+//	write(1, "Entered in del function\n", 24);
+	free(content);
+//	content = "to";
+}*/
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		(*f)(i, &s[i]);
-		i++;
-	}
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	(*del)(lst->content);
+	free(lst);
+	lst = NULL;
 }
 /*
 #include <stdio.h>
-void example_function(unsigned int index, char *character)
+int	main(void)
 {
-	index = 0;
-    *character = 'X';
-}
+	t_list	*node1;
 
-int main(void) 
-{
-    char str[] = "Hello, World!";
-	printf("Initial string:  __%s__\n", str);
-    ft_striteri(str, &example_function);
-    printf("Modified string: __%s__\n", str);
-    return (0);
+	node1 = ft_lstnew("a");
+	printf("%s\n", (char *)node1->content);
+	ft_lstdelone(node1, del);
+	printf("%s\n", (char *)node1->content);
+
+	return (0);
 }*/

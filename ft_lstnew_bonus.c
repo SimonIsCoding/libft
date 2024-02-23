@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 15:20:07 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/23 17:02:51 by simarcha         ###   ########.fr       */
+/*   Created: 2024/02/20 12:34:18 by simarcha          #+#    #+#             */
+/*   Updated: 2024/02/21 15:46:39 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
+	t_list	*lst;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		(*f)(i, &s[i]);
-		i++;
-	}
+	lst = malloc(sizeof(t_list));
+	if (!lst)
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
 }
 /*
 #include <stdio.h>
-void example_function(unsigned int index, char *character)
+int	main(void)
 {
-	index = 0;
-    *character = 'X';
-}
+	t_list *new_node = ft_lstnew("a");
+	printf("%s\n", (char *)new_node->content);
+	printf("%s\n", (char *)new_node->next);
 
-int main(void) 
-{
-    char str[] = "Hello, World!";
-	printf("Initial string:  __%s__\n", str);
-    ft_striteri(str, &example_function);
-    printf("Modified string: __%s__\n", str);
-    return (0);
+	free(new_node);
+	return (0);
 }*/

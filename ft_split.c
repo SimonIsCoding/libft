@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:23:25 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/19 13:24:40 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:52:50 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ char	**ft_split(const char *s, char c)
 #include <stdio.h>
 int main(void)
 {
-	char const s[300] = "  Mi My name is Simon enfin   	  o";
+	char const s[300] = "My name is Simon";
 	char c = ' ';
 	int	i;
 	char **result;
