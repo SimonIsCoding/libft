@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:35:58 by simarcha          #+#    #+#             */
-/*   Updated: 2024/02/01 21:30:14 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:44:06 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 //#include <stdio.h>
 //#include <stdlib.h>
 #include "libft.h"
-//we call the function ft_strlcpy into ft_strdup to crush the values of the 
-//memory to copy them
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *str)
 {
-	char	*str;
+	char	*dst;
 	size_t	i;
 
-	i = ft_strlen(s1) + 1;
-	str = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
-	if (str == NULL)
+	i = -1;
+	dst = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
+	if (!dst)
 		return (NULL);
-	ft_strlcpy(str, s1, i);
-	return (str);
+	while (str[++i] != '\0')
+		dst[i] = str[i];
+	dst[i] = '\0';
+	return (dst);
 }
 /*
 int	main(void)
