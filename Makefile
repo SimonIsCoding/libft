@@ -57,7 +57,7 @@ BONUS_OBJ	= $(BONUS_SRC:.c=.o)
 
 all: 		$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME):	$(OBJ) $(HEADER) Makefile
 			ar rcs $(NAME) $(OBJ)
 
 %.o: %.c 	$(HEADER) Makefile
