@@ -6,12 +6,10 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 12:43:10 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/14 19:05:11 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:22:33 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
-//#include <stdio.h>
 //strlcpy function copies/crushes src into dst up to n - 1 (= here size - 1) 
 //values saving the Null terminated characters
 #include "libft.h"
@@ -32,7 +30,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
-/*
+
+/*#include <string.h>
+#include <stdio.h>
 int main(void)
 {
 	int	a;

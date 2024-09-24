@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:23:50 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/23 20:00:45 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:22:14 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		i++;
 	return (a + i);
 }
-/*
-#include <string.h>
+
+/*#include <string.h>
 #include <stdio.h>
 int main() {
     // Chaînes source et destination
