@@ -3,67 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
+/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 13:23:25 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/28 18:52:50 by simarcha         ###   ########.fr       */
+/*   Created: 2024/02/26 14:06:14 by simarcha          #+#    #+#             */
+/*   Updated: 2024/09/30 11:34:32 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_counter_word(const char *s, char c)
-{
-	int	ctr;
-	int	i;
-	int	word;
+//We need a function for counting the words
+//We need a function to draw our matrix with the good numbers of cells
+//we need a function to copy the exact same letters in our matrix
+//we need a function to free everything if it fails
+//we need a function to gather everything
 
+static int	countwords(const char *s, char c)
+{
+	int	wc;
+	int	i;
+	int	check;
+
+	wc = 0;
 	i = 0;
-	word = 0;
-	ctr = 0;
-	while (s[i] != '\0')
+	check = 0;
+	while (s[i])
 	{
-		if (s[i] != c)
-			ctr++;
-		else if (s[i] == c && ctr > 0)
+		if (s[i] == c && check != 0)
 		{
-			ctr = 0;
-			word++;
+			wc++;
+			check = 0;
 		}
+		else if (s[i] != c)
+			check++;
 		i++;
 	}
-	if (ctr > 0)
-		word++;
-	return (word);
+	if (check > 0)
+		wc++;
+	return (wc);
 }
 
-static char	**ft_memory(char **array, char const *s, char c)
+static char	**draw_array(char **array, const char *s, char c)
 {
-	int	i;
-	int	ctr;
-	int	x;
+	int		i;
+	int		x;
+	int		count;
 
 	i = 0;
-	ctr = 0;
+	count = 0;
 	x = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		if (s[i] != c)
-			ctr++;
-		if ((s[i] == c && ctr > 0) || (s[i] != c && s[i + 1] == '\0'))
+			count++;
+		if ((s[i] == c && count > 0) || (s[i] != c && s[i + 1] == '\0'))
 		{
-			array[x] = malloc(sizeof(char) * (ctr + 1));
+			array[x] = malloc((count + 1) * sizeof(char));
 			if (!array[x])
 				return (NULL);
-			ctr = 0;
 			x++;
+			count = 0;
 		}
 		i++;
 	}
 	return (array);
 }
 
-static char	**ft_copy(char **array, char const *s, char c)
+static char	**complete_array(char **array, const char *s, char c)
 {
 	int	i;
 	int	x;
@@ -72,13 +78,12 @@ static char	**ft_copy(char **array, char const *s, char c)
 	i = 0;
 	x = 0;
 	y = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		if (s[i] != c)
 			array[x][y++] = s[i];
-		if (s[i] != c && s[i + 1] == '\0')
-			array[x][y] = '\0';
-		else if (s[i] == c && i > 0 && s[i - 1] != c)
+		if ((s[i] == c && i > 0 && s[i - 1] != c)
+			|| (s[i] != c && s[i + 1] == 0))
 		{
 			array[x][y] = '\0';
 			x++;
@@ -89,63 +94,58 @@ static char	**ft_copy(char **array, char const *s, char c)
 	return (array);
 }
 
-static char	**ft_free(char **array)
+char	**free_array(char **array)
 {
-	int	i;
+	int	x;
 
-	i = 0;
-	while (array[i] != NULL)
+	x = 0;
+	while (array[x])
 	{
-		free(array[i]);
-		array[i] = NULL;
-		i++;
+		free(array[x]);
+		array[x] = NULL;
+		x++;
 	}
 	free(array);
-	return (NULL);
+	array = NULL;
+	return (array);
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char	**array;
-	int		wordcount;
+	int		wc;
 
-	if (!s)
-	{
-		array = malloc(sizeof(char) * 1);
-		if (!array)
-			return (NULL);
-		*array = NULL;
-		return (array);
-	}
-	wordcount = ft_counter_word(s, c);
-	array = malloc(sizeof(*array) * (wordcount + 1));
+	wc = countwords(s, c);
+	array = malloc((wc + 1) * sizeof(*array));
 	if (!array)
 		return (NULL);
-	if (ft_memory(array, s, c))
+	if (draw_array(array, s, c))
 	{
-		ft_copy(array, s, c);
-		array[wordcount] = NULL;
+		complete_array(array, s, c);
+		array[wc] = NULL;
 	}
 	else
-		array = ft_free(array);
+		array = free_array(array);
 	return (array);
 }
+
 /*
 #include <stdio.h>
+#include <string.h>
 int main(void)
 {
-	char const s[300] = "My name is Simon";
-	char c = ' ';
-	int	i;
-	char **result;
+	char	str[90] = "";
+	char	**array;
+	int		x;
 
-	i = 0;
-	result = ft_split(s, c);
-	while (result[i] != NULL)
+//	printf("%zu\n", strlen(str));
+//	printf("%i\n", countwords(str, ' '));
+	x = 0;
+	array = ft_split(str, ' ');
+	while (array[x])
 	{
-		printf("__%s__\n", result[i]);
-		i++;
+		printf("%s\n", array[x]);
+		x++;
 	}
-	ft_free(result);
 	return (0);
 }*/

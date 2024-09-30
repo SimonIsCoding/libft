@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
+/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:04:14 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/15 15:47:53 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/09/30 13:23:36 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <strings.h>
-//#include <stddef.h>
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
@@ -28,7 +25,11 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+
 /*
+#include <stdio.h>
+#include <strings.h>
+#include <stddef.h>
 int main()
 {
     char str[30] = "ABCD EFGH";

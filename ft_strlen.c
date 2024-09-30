@@ -3,34 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
+/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:42:05 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/12 11:22:35 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/09/30 12:09:25 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <stddef.h>
 #include "libft.h"
+
+//strlen's goal is to count the number of letter within a string called s
+//if *s is NULL, the strlen from the string.h gives us SEGFAULT
+//In my case, I protected *s returning (null), if it doesn't exist
 
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i] != '\0')
 		i++;
 	return (i);
 }
-/*
+
+/*#include <stdio.h>
+#include <string.h>
+//%zu because strlen is type size_t
 int	main(void)
 {
-	const char	*str;
-	int	i;
+	const char	str[14] = "This is a test";
 
-	str = "This is a test";
-	i = ft_strlen(str);
-	printf("%d\n", i);
+	printf("LIB: %zu\n", strlen(str));
+	printf("ME : %zu\n", ft_strlen(str));
 	return (0);
 }*/
