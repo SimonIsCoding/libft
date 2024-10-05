@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:24:51 by simarcha          #+#    #+#             */
-/*   Updated: 2024/02/22 13:52:18 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/10/05 21:50:04 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		*lst = new;
 	}
 }
+
 /*
 t_list	*ft_lstnew(void *content)
 {
@@ -64,20 +65,5 @@ int	main(void)
 		free(tmp);
 	}
 	free(node1);
-	return (0);
-}
-//
-
-//writing a main following the correct type t_list **
-#include <stdio.h>
-int	main(void)
-{
-	t_list	*node1;
-	t_list	*node2;
-
-	node1 = ft_lstnew("a");
-	node2 = ft_lstnew("b");
-	ft_lstadd_front(&node1, node2);
-	printf("%s\n", (char *)node1->content);	
 	return (0);
 }*/

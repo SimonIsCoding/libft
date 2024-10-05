@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 15:59:00 by simarcha          #+#    #+#             */
-/*   Updated: 2024/02/22 20:30:48 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/10/05 23:15:00 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <unistd.h>
+#include <unistd.h>
 
-void	del(void *content)
+/*void	del(void *content)
 {
 //	write(1, "entered", 8);
 	free(content);
 //	content = "to";
-}
-*/
+}*/
+
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*tmp;
@@ -40,7 +40,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	}
 	*lst = NULL;
 }
+
 /*
+//to test our function ft_lst_clear:
 //we want a function that creates nodes
 //we want a function that link nodes
 //we want to display every nodes
@@ -84,6 +86,7 @@ int	main(void)
 	ft_lstadd_front(&node1, node2);
 	ft_lstprint(node2);
 	ft_lstclear(&node2, del);
+	printf("lst cleared\n");
 	ft_lstprint(node2);//Doesn't print because it lst == NULL
 	return (0);
 }*/

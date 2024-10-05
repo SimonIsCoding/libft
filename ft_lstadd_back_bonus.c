@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 12:07:04 by simarcha          #+#    #+#             */
-/*   Updated: 2024/02/22 20:07:04 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/10/05 21:44:26 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//the goal of this function is to add a node at the end of the list
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -28,8 +29,10 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		tmp = tmp->next;
 	tmp->next = new;
 }
-//we could use as well the function ft_lstlast to go directly to the last node
+
 /*
+//we could use as well the function ft_lstlast to go directly to the last node
+
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*lst;
@@ -87,5 +90,5 @@ int	main(void)
 	free(node1);
 
 	return (0);
-}
-*/
+}*/
+

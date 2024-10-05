@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:48:02 by simarcha          #+#    #+#             */
-/*   Updated: 2024/02/22 13:51:05 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/10/05 23:01:43 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//the goal of this function is to count how many nodes do we have in our list
 
 int	ft_lstsize(t_list *lst)
 {
