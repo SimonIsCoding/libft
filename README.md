@@ -156,12 +156,6 @@ Memory Layout:
 │              Heap                   │
 │  (Dynamically allocated memory      │
 │   with malloc, calloc, realloc)     │
-├─────────────────────────────────────┤
-│              Data Segment           │
-│  (Global variables, static data)    │
-├─────────────────────────────────────┤
-│              Code Segment           │
-│  (Program instructions)             │
 └─────────────────────────────────────┘
 ```
 
@@ -185,16 +179,6 @@ Think of your computer's memory like **different types of restaurants**:
 │     - You decide how much to eat                        │
 │     - YOU MUST clean your own plate (free)!             │
 │     - If you forget to clean → plates pile up! 🗑️       │
-│                                                         │
-│  🍽️ Food Vending Machine (Data):                        │
-│     - Always open, always available                     │
-│     - Global variables, constants                       │
-│     - Stays the same throughout your stay               │
-│                                                         │
-│  🍽️ Recipe Book (Code):                                 │
-│     - Like a cookbook with instructions                 │
-│     - Tells the restaurant what to cook                 │
-│     - Your program instructions                         │
 └─────────────────────────────────────────────────────────┘
 ```
 
