@@ -4,6 +4,11 @@
 
 This project is a custom implementation of the C standard library functions, commonly known as "libft" in programming education. It includes both basic string and memory manipulation functions, as well as bonus linked list operations.
 
+## Final score
+<div align=center>
+<img src="https://github.com/SimonIsCoding/utils_and_random/blob/main/ft_irc_grade.png"/>
+</div>
+
 ## 🎯 What is Libft?
 
 Libft is a foundational project that teaches:
@@ -40,6 +45,49 @@ Memory Layout:
 - **Data structures**: Build complex structures like linked lists
 - **Efficiency**: Avoid copying large data
 
+### 🧸 Pointers Explained Easily!
+
+Imagine you have a **treasure map**! 🗺️
+
+- The **treasure map** is like a pointer - it doesn't have the treasure itself, but it tells you where to find it
+- The **treasure** is like your data (a number, a word, etc.)
+- The **X marks the spot** is like the memory address
+
+#### 🎨 Super Simple Visual:
+```
+🏠 Your House (where you keep your toy box)
+   │
+   ▼ (your toy box is here!)
+📦 Toy Box = Your Data (like the number 42)
+   │
+   ▼ (this is your "map" to find it!)
+🗺️ Treasure Map = Pointer (says "go to your house, find the toy box!")
+
+When you follow the map → you find your toy! 🎁
+```
+
+#### 🎯 Real Example:
+```c
+int my_toy = 42;           // 📦 This is your toy (data)
+int *my_map = &my_toy;     // 🗺️ This is your map (pointer)
+// &my_toy means "where is my_toy located?"
+```
+
+#### 🎪 Memory Adventure:
+```
+Memory City:
+┌─────────────────────────────────────────────────────────┐
+│  🏠 House 1: my_toy = 42 (your toy is here!)            │
+│  🏠 House 2: my_map = "go to House 1!" (your map)       │
+│  🏠 House 3: empty                                      │
+│  🏠 House 4: empty                                      │
+└─────────────────────────────────────────────────────────┘
+
+Your map (my_map) points to House 1 where your toy (42) lives! 🏠➡️📦
+```
+
+**Remember**: A pointer is just a **friendly helper** that remembers where your stuff is! 🤗
+
 ### 2. Linked Lists - Dynamic Data Structures
 
 A **linked list** is a data structure where each element (node) contains data and a pointer to the next element.
@@ -63,15 +111,37 @@ Linked List Structure:
 └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
 ```
 
-#### Advantages of Linked Lists:
-- **Dynamic size**: Grow and shrink as needed
-- **Efficient insertion/deletion**: No need to shift elements
-- **Memory efficiency**: Only use what you need
+#### 🎪 Linked Lists are like a Train! 🚂
 
-#### Disadvantages:
-- **No random access**: Must traverse from beginning
-- **Extra memory**: Each node needs a pointer
-- **Cache unfriendly**: Nodes may be scattered in memory
+Think of a linked list like a **train with wagons**:
+
+```
+🚂 Train Adventure:
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  🚂 Engine  │───▶│  🚃 Wagon 1 │───▶│  🚃 Wagon 2 │───▶│  🚃 Wagon 3 │
+│  Driver: A  │     │  Cargo: B   │     │  Cargo: C   │     │  Cargo: D   │
+│  Next: ─────┘     │  Next: ─────┘     │  Next: ─────┘     │  Next: 🛑   │
+└─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
+```
+
+**How it works:**
+- Each wagon knows what's inside (cargo) 🎁
+- Each wagon knows which wagon comes next (next) ➡️
+- The last wagon points to nothing (🛑 = NULL)
+- You can add new wagons anywhere! 🆕
+- You can remove wagons without breaking the train! ✂️
+
+#### 🎯 Real Train Example:
+```c
+// 🚂 Create a train with one wagon
+t_list *train = ft_lstnew("Apple");  // Engine with an apple
+
+// 🚃 Add more wagons
+ft_lstadd_back(&train, ft_lstnew("Banana"));  // Add banana wagon
+ft_lstadd_back(&train, ft_lstnew("Cherry"));  // Add cherry wagon
+
+// 🎪 Now your train is: Apple → Banana → Cherry → 🛑
+```
 
 ### 3. Memory Management
 
@@ -95,11 +165,55 @@ Memory Layout:
 └─────────────────────────────────────┘
 ```
 
-#### Memory Allocation Functions:
-- **`malloc(size)`**: Allocates memory (uninitialized)
-- **`calloc(count, size)`**: Allocates and initializes to zero
-- **`free(ptr)`**: Releases allocated memory
-- **`realloc(ptr, size)`**: Resizes allocated memory
+
+#### 🍽️ Memory Management Like Different Types of Restaurants! 🍕
+
+Think of your computer's memory like **different types of restaurants**:
+
+```
+🍽️ Computer Memory linked with Food:
+┌─────────────────────────────────────────────────────────┐
+│  🍽️ Fast Food (Stack):                                  │
+│     - Like McDonald's - quick service!                  │
+│     - You order, eat, and leave                         │
+│     - Staff cleans up automatically after you           │
+│     - No need to worry about dishes                     │
+│     - Perfect for quick meals (small data)              │
+│                                                         │
+│  🍽️ Your Kitchen (Heap):                                │
+│     - You prepare what you need (malloc)                │
+│     - You decide how much to eat                        │
+│     - YOU MUST clean your own plate (free)!             │
+│     - If you forget to clean → plates pile up! 🗑️       │
+│                                                         │
+│  🍽️ Food Vending Machine (Data):                        │
+│     - Always open, always available                     │
+│     - Global variables, constants                       │
+│     - Stays the same throughout your stay               │
+│                                                         │
+│  🍽️ Recipe Book (Code):                                 │
+│     - Like a cookbook with instructions                 │
+│     - Tells the restaurant what to cook                 │
+│     - Your program instructions                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+#### 🎯 Memory Adventure Example:
+```c
+// 🍽️ Fast Food (Stack - automatic cleanup)
+int my_number = 42;        // Order, eat, leave - staff cleans up!
+
+// 🍽️ Self-Service Buffet (Heap - manual cleanup)
+int *big_array = malloc(100 * sizeof(int));  // Take a big plate
+// ... use the plate ...
+free(big_array);          // Clean your own plate!
+```
+
+**Important**: 
+- 🍽️ **Stack** = Fast food (automatic cleanup)
+- 🍽️ **Heap** = your kitchen (YOU must clean up!)
+- 🧹 Always clean your buffet plate (free) or dishes pile up! 🗑️
+- 📍 **Both restaurants exist at the same time** - no hierarchy!
 
 ## 📁 Project Structure
 
