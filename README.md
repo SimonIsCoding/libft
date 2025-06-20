@@ -361,13 +361,13 @@ You can test individual functions by uncommenting the test code at the bottom of
 cc -Wall -Wextra -Werror ft_strlen.c -o test_strlen
 ./test_strlen
 ```
-
+<!-- 
 ## 📖 Further Reading
 
 - [C Programming: A Modern Approach](https://www.amazon.com/Programming-Modern-Approach-K-King/dp/0393979504)
 - [Understanding and Using C Pointers](https://www.amazon.com/Understanding-Using-Pointers-Techniques-Management/dp/1449344186)
 - [Data Structures and Algorithms in C](https://www.amazon.com/Data-Structures-Algorithms-C-2nd/dp/0471137726)
-- [Linked List Data Structure Interview Questions](https://github.com/Devinterview-io/linked-list-data-structure-interview-questions/blob/main/README.md) - Comprehensive guide to linked list concepts and common interview questions
+- [Linked List Data Structure Interview Questions](https://github.com/Devinterview-io/linked-list-data-structure-interview-questions/blob/main/README.md) - Comprehensive guide to linked list concepts and common interview questions -->
 
 ## 🤝 Contributing
 
@@ -381,4 +381,4 @@ This is an educational project. Feel free to:
 
 **Happy coding! 🚀**
 
-*Remember: Understanding pointers and memory management is crucial for becoming a proficient C programmer. Take your time to practice these concepts!* 
+<!-- *Remember: Understanding pointers and memory management is crucial for becoming a proficient C programmer. Take your time to practice these concepts!*  -->
